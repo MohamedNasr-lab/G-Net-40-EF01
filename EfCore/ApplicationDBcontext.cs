@@ -1,17 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EfCore;
+using Microsoft.EntityFrameworkCore;
 
-namespace EfCore
+internal class ApplicationDbContext : DbContext
 {
-    internal class ApplicationDBcontext:DbContext
+
+    public DbSet<Book> Books { get; set; }
+    public DbSet<Author> Authors { get; set; }
+    public DbSet<Category> Categories { get; set; }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=.;DataBase=EFCore;Trusted_Connection=true;TrustServerCertificate=true");
-        }
+        optionsBuilder.UseSqlServer(
+            "Server=.;Database=EFCore;Trusted_Connection=true;TrustServerCertificate=true"
+        );
     }
 }
