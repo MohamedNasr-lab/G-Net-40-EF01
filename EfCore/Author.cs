@@ -15,7 +15,8 @@ namespace EfCore
         public string Bio { get; set; }
         public DateTime DateOfBirth { get; set; }
 
-        // One author → many books
+        
+
         public List<Book> Books { get; set; }
     }
 }

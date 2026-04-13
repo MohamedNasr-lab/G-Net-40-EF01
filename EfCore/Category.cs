@@ -14,6 +14,7 @@ namespace EfCore
         public bool IsActive { get; set; }
 
        
+
         public List<Book> Books { get; set; }
     }
 }
